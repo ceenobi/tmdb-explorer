@@ -14,8 +14,8 @@ export default function Navbar() {
       className='position-fixed top-0 bg-dark shadow-lg'
       style={{ zIndex: 10 }}
     >
-      <Stack direction='horizontal' className=' p-2 justify-content-between '>
-        <Stack direction='horizontal' gap={3} style={{ cursor: 'pointer' }}>
+      <Stack direction='horizontal' className=' p-2 justify-content-between'>
+        <Stack direction='horizontal' gap={2} style={{ cursor: 'pointer' }}>
           {showMenu ? (
             <AiOutlineClose
               className='d-lg-none text-white'
@@ -30,7 +30,7 @@ export default function Navbar() {
             />
           )}
           <Link to='/'>
-            <SiThemoviedatabase size='2.5rem' style={{ color: 'orange' }} />
+            <SiThemoviedatabase size='2.5rem' color='orange'/>
           </Link>
         </Stack>
         <Searchbar />

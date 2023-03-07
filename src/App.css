@@ -5,9 +5,11 @@
   scroll-behavior: smooth;
   font-family: 'Noto Sans Mro', sans-serif;
 }
+body {
+  background-color: #101010;
+}
 
 #root {
-  background-color: #101010;
   margin: 0 auto;
 }
 input {
