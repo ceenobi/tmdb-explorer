@@ -56,10 +56,7 @@ export default function PersonId() {
   } = dataId
 
   return (
-    <div
-      className='mt-md-0 position-relative'
-      style={{ minHeight: '95vh' }}
-    >
+    <div className='mt-md-0 position-relative' style={{ minHeight: '95vh' }}>
       <div className='posterBackdrop'>
         <Image
           src={`https://image.tmdb.org/t/p/original/${profile_path}`}
@@ -84,7 +81,13 @@ export default function PersonId() {
           <div className='px-2 text-white'>
             <h1 className='fs-4'>{name}</h1>
             <h1 className='fs-5'>Biography</h1>
-            <p className=''>{biography.split(/(?:\r?\n)+/)}</p>
+            {biography.split('\n\n').map((paragraph) => (
+              <p>
+                {paragraph
+                  .split('\n')
+                  .reduce((total, line) => [total, <br />, line])}
+              </p>
+            ))}
             <h1 className='fs-5'>Personal info</h1>
             <div className='d-flex flex-wrap gap-2'>
               <div>

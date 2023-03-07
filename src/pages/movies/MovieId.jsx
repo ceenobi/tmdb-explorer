@@ -23,7 +23,7 @@ export default function MovieId() {
   // const [statusCode, setStatusCode] = useState(null)
   const [index, setIndex] = useState(0)
   const { movie_id } = useParams()
-  const [scroll, scrollB, scrollC, scrollRef, scrollRefB, scrollRefC] =
+  const { scroll, scrollB, scrollC, scrollRef, scrollRefB, scrollRefC } =
     useScroll()
   const [scrollToTop] = useScrollToTop(movie_id)
 
@@ -103,10 +103,16 @@ export default function MovieId() {
           <div className='text-white'>
             <h1 className='fs-5'>Overview</h1>
             <p className=''>{tagline}</p>
-            <p>{overview}</p>
+            {overview.split('\n\n').map((paragraph) => (
+              <p>
+                {paragraph
+                  .split('\n')
+                  .reduce((total, line) => [total, <br />, line])}
+              </p>
+            ))}
             <h1 className='fs-5 text-secondary'>Screenplay</h1>
             <p>
-              {crew[0].job} - {crew[0].name}
+              {crew[0]?.job} - {crew[0]?.name}
             </p>
             <h1 className='fs-5'>Genres</h1>
             <div className='d-flex flex-wrap gap-2'>
@@ -156,7 +162,7 @@ export default function MovieId() {
               </div>
             ))}
           </div>
-          {results.length > 8 && <ScrollButtons scroll={scroll} />}
+          {results.length > 5 && <ScrollButtons scroll={scroll} />}
           {showModal && (
             <Videobox
               showModal={showModal}

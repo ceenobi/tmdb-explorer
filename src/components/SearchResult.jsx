@@ -8,8 +8,9 @@ import Spinner from '../utils/Spinner'
 export default function SearchResult({ searchquery, setResultBox }) {
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
+
   useEffect(() => {
-    async function fetchData() {
+    const getSearch = setTimeout(async () => {
       try {
         const response = await axios.get(
           `${BASE_URL}/search/multi?api_key=${API_KEY}&query=${searchquery}`,
@@ -17,12 +18,14 @@ export default function SearchResult({ searchquery, setResultBox }) {
         )
         setData(response.data.results)
       } catch (error) {
-        console.log(error)
+        console.error(error)
         setError(error)
       }
-    }
-    fetchData()
+    })
+    return () => clearTimeout(getSearch)
   }, [searchquery])
+
+  if (!data) return <Spinner />
 
   const filteredResults = data?.filter((content) => {
     if (content.media_type == 'tv') {
@@ -31,7 +34,6 @@ export default function SearchResult({ searchquery, setResultBox }) {
       return content.title || content.name
     }
   })
-  if (!data) return <Spinner />
 
   return (
     <div

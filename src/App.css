@@ -5,14 +5,13 @@
   scroll-behavior: smooth;
   font-family: 'Noto Sans Mro', sans-serif;
 }
-body {
-  background: '#101010' !important;
-}
+
 #root {
+  /* background-color: #101010; */
   margin: 0 auto;
 }
 input {
-  width: 200px;
+  width: 70vw;
 }
 input:focus {
   outline: none !important;
@@ -54,7 +53,6 @@ input::placeholder {
 .sideA {
   width: 100%;
 }
-
 .sideMobile {
   overflow-y: auto;
   height: 100vh;
@@ -112,7 +110,7 @@ input::placeholder {
 }
 
 .searchResult {
-  width: 100%;
+  width: 70vw;
 }
 .hover-me:hover {
   background-color: #626060;
@@ -147,6 +145,9 @@ input::placeholder {
   .sideA {
     width: 80%;
   }
+  .mediaCard {
+    flex: 0 1 170px !important;
+  }
   .media_poster {
     width: 300px !important;
   }
@@ -158,6 +159,11 @@ input::placeholder {
   }
   .sideMobile {
     height: 85vh;
+  }
+  .sideDesktop {
+    width: 250px;
+    background-color: #101010;
+    min-height: 100vh;
   }
 }
 
@@ -172,7 +178,7 @@ input::placeholder {
     height: 80vh !important;
   }
   .mediaCard {
-    flex: 0 1 170px !important;
+    flex: 0 1 160px;
   }
   .mediaCard:hover {
     border: 1px solid orange;

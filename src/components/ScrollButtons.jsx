@@ -4,7 +4,7 @@ import {
   IoMdArrowDroprightCircle,
 } from 'react-icons/io'
 
-export default function ScrollButtons({ scroll }) {
+export default function ScrollButtons({ scroll}) {
   return (
     <div
       className='d-none d-lg-flex'
@@ -27,5 +27,3 @@ export default function ScrollButtons({ scroll }) {
     </div>
   )
 }
-
-

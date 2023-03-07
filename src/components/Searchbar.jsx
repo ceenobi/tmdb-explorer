@@ -8,15 +8,6 @@ export default function Searchbar() {
   const [searchquery, setSearchQuery] = useState('')
   const [resultBox, setResultBox] = useState(false)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setSearchQuery('')
-  }
-
-  let inputHandler = (e) => {
-    var lowerCase = e.target.value.toLowerCase()
-    setSearchQuery(lowerCase)
-  }
   useEffect(() => {
     if (searchquery !== '') {
       setResultBox(true)
@@ -24,6 +15,11 @@ export default function Searchbar() {
       setResultBox(false)
     }
   }, [searchquery])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSearchQuery('')
+  }
 
   return (
     <div className='position-relative'>
@@ -33,12 +29,13 @@ export default function Searchbar() {
             type='text'
             placeholder='Search Movies & People'
             className='border-0 border-bottom bg-dark text-white'
-            onChange={inputHandler}
+            value={searchquery}
+            onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
           />
           {searchquery.length > 0 ? (
             <AiOutlineClose
               className='text-white position-absolute top-50 end-0 translate-middle-y'
-              style={{cursor: 'pointer'}}
+              style={{ cursor: 'pointer' }}
               onClick={() => {
                 setResultBox(false)
                 setSearchQuery('')
