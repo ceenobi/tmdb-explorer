@@ -3,7 +3,7 @@ import { Image } from 'react-bootstrap'
 
 export default function PageLayoutId({ children, src, alt, error }) {
   return (
-    <div className='mt-md-0 position-relative' style={{ minHeight: '95vh' }}>
+    <div className='position-relative' style={{ minHeight: '95vh' }}>
       <div className='posterBackdrop'>
         <Image
           src={src}

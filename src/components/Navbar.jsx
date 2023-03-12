@@ -11,10 +11,13 @@ export default function Navbar() {
   return (
     <Container
       fluid
-      className='position-fixed top-0 bg-dark shadow-lg'
+      className='position-sticky top-0 bg-dark shadow-lg'
       style={{ zIndex: 10 }}
     >
-      <Stack direction='horizontal' className=' p-2 justify-content-between'>
+      <Stack
+        direction='horizontal'
+        className='py-2 p-lg-2 justify-content-between'
+      >
         <Stack direction='horizontal' gap={2} style={{ cursor: 'pointer' }}>
           {showMenu ? (
             <AiOutlineClose
@@ -30,7 +33,7 @@ export default function Navbar() {
             />
           )}
           <Link to='/'>
-            <SiThemoviedatabase size='2.5rem' color='orange'/>
+            <SiThemoviedatabase size='2.5rem' color='orange' />
           </Link>
         </Stack>
         <Searchbar />

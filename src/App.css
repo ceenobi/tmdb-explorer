@@ -14,6 +14,7 @@ body {
 }
 input {
   width: 70vw;
+  background-color: transparent;
 }
 input:focus {
   outline: none !important;
@@ -43,11 +44,12 @@ input::placeholder {
   padding: 2px;
   height: 100%;
 }
-
-.side:hover {
-  background-color: #171616;
+.side {
   padding: 5px 10px;
-  border-radius: 8px;
+}
+.side:hover {
+  background-color: #1d1c1c;
+  border-radius: 1px;
   transition: all 0.3s;
   color: orange;
 }
@@ -148,7 +150,7 @@ input::placeholder {
     width: 80%;
   }
   .mediaCard {
-    flex: 0 1 170px !important;
+    flex: 0 1 175px !important;
   }
   .media_poster {
     width: 300px !important;

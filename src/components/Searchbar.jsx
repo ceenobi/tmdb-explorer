@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Form, InputGroup } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import { FiSearch } from 'react-icons/fi'
 import { AiOutlineClose } from 'react-icons/ai'
 import SearchResult from './SearchResult'
@@ -24,7 +24,7 @@ export default function Searchbar() {
   return (
     <div className='position-relative'>
       <Form onSubmit={handleSubmit}>
-        <InputGroup className='position-relative'>
+        <div className='position-relative'>
           <input
             type='text'
             placeholder='Search Movies & People'
@@ -47,7 +47,7 @@ export default function Searchbar() {
               className='text-white position-absolute top-50 end-0 translate-middle-y'
             />
           )}
-        </InputGroup>
+        </div>
       </Form>
       {resultBox && (
         <SearchResult searchquery={searchquery} setResultBox={setResultBox} />

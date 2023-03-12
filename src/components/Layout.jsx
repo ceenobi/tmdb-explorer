@@ -14,7 +14,7 @@ export default function Layout() {
             </p>
           </div>
         </div>
-        <div className='sideA bg-dark mt-5 py-2'>
+        <div className='sideA bg-dark'>
           <Outlet />
         </div>
       </div>
