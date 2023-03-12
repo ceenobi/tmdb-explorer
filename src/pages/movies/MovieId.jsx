@@ -259,7 +259,7 @@ export default function MovieId() {
       <div className='px-2 mt-4'>
         <h1 className='text-white fs-5 mt-3 mb-3'>Recommendations</h1>
         {resultsB.length > 0 ? (
-          <div className='d-flex flex-wrap gap-3'>
+          <div className='d-flex flex-wrap gap-4'>
             {resultsB.map((movie) => (
               <MediaCard {...movie} key={movie.id} />
             ))}
