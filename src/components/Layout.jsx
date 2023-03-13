@@ -14,7 +14,7 @@ export default function Layout() {
             </p>
           </div>
         </div>
-        <div className='sideA'>
+        <div className='sideA bg-dark'>
           <Outlet />
         </div>
       </div>

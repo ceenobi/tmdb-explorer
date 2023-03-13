@@ -6,7 +6,7 @@
   font-family: 'Noto Sans Mro', sans-serif;
 }
 body {
-  background-color: #101010 !important;
+  background-color: #202428 !important;
 }
 
 #root {
@@ -23,10 +23,6 @@ input::placeholder {
   color: #fff !important;
   opacity: 0.7;
 }
-.bgColor {
-  background-color: #101010;
-}
-
 .scrollbody {
   scrollbar-width: none;
   -ms-overflow-style: none;
