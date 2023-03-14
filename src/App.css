@@ -16,6 +16,7 @@ body {
 input {
   width: 70vw;
   background-color: transparent;
+  border-style: solid;
 }
 input:focus {
   outline: none !important;
@@ -41,22 +42,22 @@ input::placeholder {
   padding: 2px;
   height: 100%;
 }
-.side {
+.menu {
   padding: 5px 10px;
 }
-.side:hover {
+.menu:hover {
   background-color: #1d1c1c;
   border-radius: 1px;
   transition: all 0.3s;
   color: orange;
 }
 
-.sideA {
+.outlet {
   width: 100%;
 }
-.sideMobile {
+.sideAdjust {
   overflow-y: auto;
-  height: 100vh;
+  height: 95vh;
 }
 
 .media_poster {
@@ -78,7 +79,7 @@ input::placeholder {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 50;
+  z-index: 5;
   top: 0;
   left: 0;
   transition: all 0.3s;
@@ -103,11 +104,13 @@ input::placeholder {
 }
 .personImg {
   width: 100%;
-  height: 60vh;
+  height: 100%;
+  object-fit: cover;
 }
 
 .react-player {
   width: 100%;
+  height: 100%;
 }
 
 .searchResult {
@@ -130,7 +133,7 @@ input::placeholder {
 }
 
 @media (min-width: 1400px) {
-  .sideA {
+  .outlet {
     flex: 1;
   }
 }
@@ -143,7 +146,7 @@ input::placeholder {
     width: 80%;
     margin: 0 auto;
   }
-  .sideA {
+  .outlet {
     width: 80%;
   }
   .mediaCard {
@@ -153,14 +156,13 @@ input::placeholder {
     width: 300px !important;
   }
   .contentbox {
-    width: 800px !important;
-    height: 50% !important;
+    height: 100% !important;
   }
   .searchResult {
     width: 600px !important;
   }
-  .sideMobile {
-    height: 85vh;
+  .sideAdjust {
+    height: 95vh;
   }
   .sideDesktop {
     width: 250px;
@@ -176,9 +178,6 @@ input::placeholder {
   .sidebar {
     height: 95% !important;
   }
-  .h-md {
-    height: 80vh !important;
-  }
   .mediaCard {
     flex: 0 1 160px;
   }
@@ -193,13 +192,10 @@ input::placeholder {
     width: 100%;
     margin: 0 auto;
   }
-  .personImg {
-    height: 60vh;
-  }
   .contentbox {
-    height: 50%;
-    margin: 0 auto;
-    top: 35%;
+    height: 100%;
+    width: auto;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }

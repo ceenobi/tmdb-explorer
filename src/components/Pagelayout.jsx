@@ -3,7 +3,7 @@ import React from 'react'
 export default function Pagelayout({children, heading, error}) {
   return (
     <div
-      className='container-md py-4'
+      className='container-md py-4 mx-auto'
       style={{ minHeight: '95vh' }}
     >
       <h1 className='text-white mb-4 fs-5'>{heading}</h1>

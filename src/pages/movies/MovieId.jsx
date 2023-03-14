@@ -202,6 +202,7 @@ export default function MovieId() {
                     width: '270px',
                     height: '180px',
                     cursor: 'pointer',
+                    objectFit: 'fill'
                   }}
                   alt='...'
                 />

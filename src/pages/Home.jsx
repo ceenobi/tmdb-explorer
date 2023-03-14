@@ -8,7 +8,7 @@ const MediaCard = lazy(() => import('../components/MediaCard'))
 export default function Home() {
   const { error, setPage, newdata, data } = useFetchData('trending/movie/week')
   const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems)
- 
+
   function fetchMoreListItems() {
     setTimeout(() => {
       setPage((prev) => prev + 1)
