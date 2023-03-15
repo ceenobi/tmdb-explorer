@@ -104,8 +104,7 @@ input::placeholder {
 }
 .personImg {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 70vh;
 }
 
 .react-player {
@@ -155,9 +154,6 @@ input::placeholder {
   .media_poster {
     width: 300px !important;
   }
-  .contentbox {
-    height: 100% !important;
-  }
   .searchResult {
     width: 600px !important;
   }
@@ -168,6 +164,9 @@ input::placeholder {
     width: 250px;
     background-color: #101010;
     min-height: 100vh;
+  }
+  .personImg {
+    height: 600px;
   }
 }
 
@@ -188,9 +187,7 @@ input::placeholder {
     width: 270px;
   }
   .boxImg {
-    height: 100%;
     width: 100%;
-    margin: 0 auto;
   }
   .contentbox {
     height: 100%;
