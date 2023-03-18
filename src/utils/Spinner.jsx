@@ -2,9 +2,7 @@ import { ThreeCircles } from 'react-loader-spinner'
 
 export default function Spinner() {
   return (
-    <div
-      className='d-flex justify-content-center align-items-center mt-5'
-    >
+    <div className='d-flex justify-content-center align-items-center mt-5 py-5'>
       <ThreeCircles
         height='50'
         width='50'

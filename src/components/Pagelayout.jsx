@@ -1,11 +1,8 @@
 import React from 'react'
 
-export default function Pagelayout({children, heading, error}) {
+export default function Pagelayout({ children, heading, error }) {
   return (
-    <div
-      className='container-md py-4 mx-auto'
-      style={{ minHeight: '95vh' }}
-    >
+    <div className='px-2 py-4 mt-5'>
       <h1 className='text-white mb-4 fs-5'>{heading}</h1>
       {error && <p className='text-white mt-4 fs-5'>{error.message}</p>}
       {children}

@@ -1,4 +1,5 @@
 import React, { lazy, useEffect } from 'react'
+import { Col, Row } from 'react-bootstrap'
 import { Pagelayout } from '../../components'
 import useFetchData from '../../hooks/useFetchData'
 import useInfiniteScroll from '../../hooks/useInfiniteScroll'
@@ -23,11 +24,13 @@ export default function Person() {
   return (
     <Pagelayout heading='Trending People' error={error}>
       <React.Suspense fallback={<Spinner />}>
-        <div className='d-flex flex-wrap gap-3'>
+        <Row className='gy-2'>
           {[...newdata, ...data].map((person) => (
-            <PersonCard {...person} key={person.id} />
+            <Col xs={6} md={3} xl={2} key={person.id}>
+              <PersonCard {...person} />
+            </Col>
           ))}
-        </div>
+        </Row>
       </React.Suspense>
       {isFetching && <Spinner />}
     </Pagelayout>

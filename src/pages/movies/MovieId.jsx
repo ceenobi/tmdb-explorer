@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Image } from 'react-bootstrap'
+import { Col, Image, Row } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import { AiFillStar } from 'react-icons/ai'
 import Spinner from '../../utils/Spinner'
@@ -91,7 +91,7 @@ export default function MovieId() {
             title={title}
           />
         </div>
-        <div className='px-2'>
+        <div>
           <h1 className='fs-4 text-white'>{title}</h1>
           <p className='text-secondary fw-bold'>
             {release_date.slice(0, 4)} - {runtime} minutes
@@ -129,98 +129,110 @@ export default function MovieId() {
           </div>
         </div>
       </div>
-      <div className='px-2 mt-4'>
+      <div className='mt-4'>
         <h1 className='text-white fs-5 mt-3 mb-3'>Videos</h1>
-        <div style={{ position: 'relative' }}>
-          <div
-            className='d-flex scrollbody'
-            style={{
-              overflowX: 'scroll',
-              overflowY: 'hidden',
-              width: '100%',
-            }}
-            ref={scrollRef}
-          >
-            {results.map((video, index) => (
-              <div
-                key={index}
-                className='d-flex flex-column justify-content-between text-white me-3'
-              >
+        {results.length > 0 ? (
+          <div style={{ position: 'relative' }}>
+            <div
+              className='d-flex scrollbody'
+              style={{
+                overflowX: 'scroll',
+                overflowY: 'hidden',
+                width: '100%',
+              }}
+              ref={scrollRef}
+            >
+              {results.map((video, index) => (
                 <div
-                  className='p-1 rounded-3 text-center shadow trailerVid '
+                  key={index}
+                  className='d-flex flex-column justify-content-between text-white me-3'
+                >
+                  <div
+                    className='p-1 rounded-3 text-center shadow trailerVid '
+                    onClick={() => {
+                      setShowModal(true)
+                      setIndex(index)
+                    }}
+                  >
+                    <p className='text-white small fw-bold mt-1 mb-0'>
+                      {video.name.slice(0, 30)}
+                    </p>
+
+                    <p className='small text-secondary'>{video.type}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {results.length > 5 && <ScrollButtons scroll={scroll} />}
+            {showModal && (
+              <Videobox
+                showModal={showModal}
+                setShowModal={setShowModal}
+                index={index}
+                setIndex={setIndex}
+                results={results}
+              />
+            )}
+          </div>
+        ) : (
+          <h1 className='text-secondary fs-5 mt-3 mb-3'>
+            No videos for {title} at the moment
+          </h1>
+        )}
+      </div>
+      <div className='mt-4'>
+        <h1 className='text-white fs-5 mt-3 mb-3'>Images</h1>
+        {backdrops.length > 0 ? (
+          <div style={{ position: 'relative' }}>
+            <div
+              className='d-flex scrollbody'
+              style={{
+                overflowX: 'scroll',
+                overflowY: 'hidden',
+                width: '100%',
+              }}
+              ref={scrollRefB}
+            >
+              {backdrops.slice(0, 25).map((image, index) => (
+                <div
+                  key={index}
+                  className='me-3'
                   onClick={() => {
-                    setShowModal(true)
+                    setShowPicModal(true)
                     setIndex(index)
                   }}
                 >
-                  <p className='text-white small fw-bold mt-1 mb-0'>
-                    {video.name.slice(0, 30)}
-                  </p>
-
-                  <p className='small text-secondary'>{video.type}</p>
+                  <Image
+                    src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                    className='rounded-3'
+                    style={{
+                      width: '270px',
+                      height: '180px',
+                      cursor: 'pointer',
+                      objectFit: 'fill',
+                    }}
+                    alt='...'
+                  />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            {backdrops.length > 8 && <ScrollButtons scroll={scrollB} />}
+            {showPicModal && (
+              <Imagebox
+                setShowPicModal={setShowPicModal}
+                index={index}
+                setIndex={setIndex}
+                backdrops={backdrops}
+              />
+            )}
           </div>
-          {results.length > 5 && <ScrollButtons scroll={scroll} />}
-          {showModal && (
-            <Videobox
-              showModal={showModal}
-              setShowModal={setShowModal}
-              index={index}
-              setIndex={setIndex}
-              results={results}
-            />
-          )}
-        </div>
+        ) : (
+          <h1 className='text-secondary fs-5 mt-3 mb-3'>
+            No images for {title} at the moment
+          </h1>
+        )}
       </div>
-      <div className='px-2 mt-4'>
-        <h1 className='text-white fs-5 mt-3 mb-3'>Images</h1>
-        <div style={{ position: 'relative' }}>
-          <div
-            className='d-flex scrollbody'
-            style={{
-              overflowX: 'scroll',
-              overflowY: 'hidden',
-              width: '100%',
-            }}
-            ref={scrollRefB}
-          >
-            {backdrops.slice(0, 25).map((image, index) => (
-              <div
-                key={index}
-                className='me-3'
-                onClick={() => {
-                  setShowPicModal(true)
-                  setIndex(index)
-                }}
-              >
-                <Image
-                  src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                  className='rounded-3'
-                  style={{
-                    width: '270px',
-                    height: '180px',
-                    cursor: 'pointer',
-                    objectFit: 'fill'
-                  }}
-                  alt='...'
-                />
-              </div>
-            ))}
-          </div>
-          {backdrops.length > 8 && <ScrollButtons scroll={scrollB} />}
-          {showPicModal && (
-            <Imagebox
-              setShowPicModal={setShowPicModal}
-              index={index}
-              setIndex={setIndex}
-              backdrops={backdrops}
-            />
-          )}
-        </div>
-      </div>
-      <div className='px-2 mt-4'>
+      <div className='mt-4'>
         <h1 className='text-white fs-5 mt-3 mb-3'>Cast</h1>
         <div style={{ position: 'relative' }}>
           <div
@@ -257,14 +269,16 @@ export default function MovieId() {
           {cast.length > 8 && <ScrollButtons scroll={scrollC} />}
         </div>
       </div>
-      <div className='px-2 mt-4'>
+      <div className='mt-4'>
         <h1 className='text-white fs-5 mt-3 mb-3'>Recommendations</h1>
         {resultsB.length > 0 ? (
-          <div className='d-flex flex-wrap gap-3'>
+          <Row className='gy-2'>
             {resultsB.map((movie) => (
-              <MediaCard {...movie} key={movie.id} />
+              <Col xs={6} md={3} xl={2} key={movie.id}>
+                <MediaCard {...movie} />
+              </Col>
             ))}
-          </div>
+          </Row>
         ) : (
           <h1 className='text-secondary fs-5 mt-3 mb-3'>
             No recommendations for {title}

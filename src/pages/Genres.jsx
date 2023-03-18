@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { lazy, useEffect, useState } from 'react'
+import { Col, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { API_KEY, BASE_URL, options } from '../api/config'
 import { Pagelayout } from '../components'
@@ -56,11 +57,13 @@ export default function Genres() {
       error={error}
     >
       <React.Suspense fallback={<Spinner />}>
-        <div className='d-flex flex-wrap gap-3'>
+        <Row className='gy-2'>
           {[...newGenreList, ...genreList].map((movie) => (
-            <MediaCard {...movie} key={movie.id} />
+            <Col xs={6} md={3} xl={2} key={movie.id}>
+              <MediaCard {...movie} />
+            </Col>
           ))}
-        </div>
+        </Row>
       </React.Suspense>
       {isFetching && <Spinner />}
     </Pagelayout>

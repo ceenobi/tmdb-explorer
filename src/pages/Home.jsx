@@ -1,4 +1,5 @@
 import React, { lazy, useEffect } from 'react'
+import { Col, Row } from 'react-bootstrap'
 import { Pagelayout } from '../components'
 import useFetchData from '../hooks/useFetchData'
 import useInfiniteScroll from '../hooks/useInfiniteScroll'
@@ -21,27 +22,15 @@ export default function Home() {
   }, [])
 
   return (
-    // <div
-    //   className='container-md mt-4 mt-lg-0'
-    //   style={{ overflowY: '90vh', minHeight: '95vh' }}
-    // >
-    //   <h1 className='text-white mt-4 mb-4 fs-5'>Trending Movies</h1>
-    //   {error && <p className='text-white mt-4 fs-5'>{error.message}</p>}
-    //   <React.Suspense fallback={<Spinner />}>
-    //     <div className='d-flex flex-wrap gap-3'>
-    //       {data.map((movie) => (
-    //         <MediaCard {...movie} key={movie.id} />
-    //       ))}
-    //     </div>
-    //   </React.Suspense>
-    // </div>
     <Pagelayout heading='Trending Movies' error={error}>
       <React.Suspense fallback={<Spinner />}>
-        <div className='d-flex flex-wrap gap-3'>
+        <Row className='gy-2'>
           {[...newdata, ...data].map((movie, index) => (
-            <MediaCard {...movie} key={index} />
+            <Col xs={6} md={3} xl={2} key={index}>
+              <MediaCard {...movie} />
+            </Col>
           ))}
-        </div>
+        </Row>
       </React.Suspense>
       {isFetching && <Spinner />}
     </Pagelayout>

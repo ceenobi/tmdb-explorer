@@ -6,17 +6,11 @@
   font-family: 'Noto Sans Mro', sans-serif;
 }
 body {
-  background-color: #202428 !important;
-}
-
-#root {
-  margin: 0 auto;
+  background-color: #0f1113 !important;
 }
 
 input {
-  width: 70vw;
-  background-color: transparent;
-  border-style: solid;
+  width: 65vw;
 }
 input:focus {
   outline: none !important;
@@ -32,8 +26,27 @@ input::placeholder {
 .scrollbody::-webkit-scrollbar {
   display: none;
 }
+
+.scrollbar {
+  height: calc(100vh-50px);
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background-color: #acacac;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(130, 130, 130);
+}
+
+.sideAdjust {
+  overflow-y: scroll;
+  height: 100%;
+}
 .mediaCard {
-  flex: 1 0 130px;
+  flex: 0 1 130px;
 }
 .cast:hover {
   opacity: 0.5;
@@ -44,20 +57,6 @@ input::placeholder {
 }
 .menu {
   padding: 5px 10px;
-}
-.menu:hover {
-  background-color: #1d1c1c;
-  border-radius: 1px;
-  transition: all 0.3s;
-  color: orange;
-}
-
-.outlet {
-  width: 100%;
-}
-.sideAdjust {
-  overflow-y: auto;
-  height: 95vh;
 }
 
 .media_poster {
@@ -88,15 +87,15 @@ input::placeholder {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #181717;
-  opacity: 0.7;
+  background-color: #101010;
+  opacity: 0.8;
   width: 100%;
   height: 100%;
 }
 .contentbox {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: 100%;
   margin-top: 4rem;
@@ -104,7 +103,8 @@ input::placeholder {
 }
 .personImg {
   width: 100%;
-  height: 70vh;
+  max-height: 500px;
+  object-fit: contain;
 }
 
 .react-player {
@@ -130,26 +130,38 @@ input::placeholder {
   background-color: rgb(64, 62, 62);
   border: 1px solid orange;
 }
-
-@media (min-width: 1400px) {
-  .outlet {
-    flex: 1;
-  }
+.outlet {
+  width: 100%;
+}
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0f1113;
+  transition: 0.5s ease;
+  flex-direction: column;
+  z-index: 5;
+  overflow-y: scroll;
 }
 
 @media (min-width: 1024px) {
   input {
-    width: 600px !important;
+    width: 500px !important;
   }
   .adjustMediaId {
     width: 80%;
     margin: 0 auto;
   }
-  .outlet {
-    width: 80%;
+  .menu:hover {
+    background-color: #1d1c1c;
+    border-radius: 1px;
+    transition: all 0.3s;
+    color: orange;
   }
   .mediaCard {
-    flex: 0 1 170px !important;
+    flex: 0 1 170px;
   }
   .media_poster {
     width: 300px !important;
@@ -157,25 +169,17 @@ input::placeholder {
   .searchResult {
     width: 600px !important;
   }
-  .sideAdjust {
-    height: 95vh;
+  .outlet {
+    width: calc(100% - 250px);
   }
-  .sideDesktop {
-    width: 250px;
-    background-color: #101010;
-    min-height: 100vh;
-  }
-  .personImg {
-    height: 600px;
-  }
+  /* .personImg {
+    height: 500px;
+  } */
 }
 
 @media (min-width: 768px) {
   input {
     width: 400px;
-  }
-  .sidebar {
-    height: 95% !important;
   }
   .mediaCard {
     flex: 0 1 160px;
@@ -191,12 +195,15 @@ input::placeholder {
   }
   .contentbox {
     height: 100%;
-    width: auto;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   .searchResult {
     width: 400px;
+  }
+  .posterBackdrop {
+    width: 100%;
   }
 }

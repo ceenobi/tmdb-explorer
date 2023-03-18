@@ -11,4 +11,6 @@ export { default as SearchResult } from './SearchResult'
 export { default as Error } from './Error'
 export { default as Pagelayout } from './Pagelayout'
 export { default as PageLayoutId } from './PageLayoutId'
+export { default as Drawer } from './Drawer'
+
 
