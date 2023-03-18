@@ -163,7 +163,7 @@ export default function PersonId() {
             ))}
           </Row>
         ) : (
-          <h1 className='text-secondary fs-5 mt-3 mb-3'>
+          <h1 className='text-secondary fs-6 mt-3 mb-3'>
             No recommendations for {title}
           </h1>
         )}

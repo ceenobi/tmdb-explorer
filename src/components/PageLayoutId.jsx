@@ -12,7 +12,7 @@ export default function PageLayoutId({ children, src, alt, error }) {
         />
       </div>
       <div
-        className='container-lg px-2 py-4 mt-5'
+        className='container-lg px-2 px-lg-4 py-4 mt-5'
         style={{ zIndex: 4, position: 'relative' }}
       >
         {error && <p className='text-white mt-4 fs-5'>{error.message}</p>}

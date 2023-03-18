@@ -175,7 +175,7 @@ export default function MovieId() {
             )}
           </div>
         ) : (
-          <h1 className='text-secondary fs-5 mt-3 mb-3'>
+          <h1 className='text-secondary fs-6 mt-3 mb-3'>
             No videos for {title} at the moment
           </h1>
         )}
@@ -227,7 +227,7 @@ export default function MovieId() {
             )}
           </div>
         ) : (
-          <h1 className='text-secondary fs-5 mt-3 mb-3'>
+          <h1 className='text-secondary fs-6 mt-3 mb-3'>
             No images for {title} at the moment
           </h1>
         )}
@@ -280,7 +280,7 @@ export default function MovieId() {
             ))}
           </Row>
         ) : (
-          <h1 className='text-secondary fs-5 mt-3 mb-3'>
+          <h1 className='text-secondary fs-6 mt-3 mb-3'>
             No recommendations for {title}
           </h1>
         )}
