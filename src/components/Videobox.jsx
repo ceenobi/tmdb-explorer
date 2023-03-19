@@ -8,10 +8,10 @@ import ReactPlayer from 'react-player'
 
 export default function Videobox({ setShowModal, index, setIndex, results }) {
   const prevSlide = () => {
-    setIndex(index === 0 ? results.length : (prev) => prev - 1)
+    setIndex(index === 1 ? results.length : (prev) => prev - 1)
   }
   const nextSlide = () => {
-    setIndex(index === results.length ? 0 : (prev) => prev + 1)
+    setIndex(index === results.length ? 1 : (prev) => prev + 1)
   }
   const resultSlides = results.map((u) => u.key)
   return (

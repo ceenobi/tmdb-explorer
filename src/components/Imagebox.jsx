@@ -14,16 +14,16 @@ export default function Imagebox({
   backdrops,
 }) {
   const prevSlide = () => {
-    setIndex(index === 0 ? profiles.length : (prev) => prev - 1)
+    setIndex(index === 1 ? profiles.length : (prev) => prev - 1)
   }
   const prevSlideB = () => {
-    setIndex(index === 0 ? backdrops.length : (prev) => prev - 1)
+    setIndex(index === 1 ? backdrops.length : (prev) => prev - 1)
   }
   const nextSlide = () => {
-    setIndex(index === profiles.length ? 0 : (prev) => prev + 1)
+    setIndex(index === profiles.length ? 1: (prev) => prev + 1)
   }
   const nextSlideB = () => {
-    setIndex(index === backdrops.length ? 0 : (prev) => prev + 1)
+    setIndex(index === backdrops.length ? 1 : (prev) => prev + 1)
   }
   const imgSlides = profiles?.map((u) => u.file_path)
   const backDrops = backdrops?.slice(0, 25).map((u) => u.file_path)

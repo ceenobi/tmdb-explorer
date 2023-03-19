@@ -16,7 +16,7 @@ export default function PersonId() {
   const [dataId, setDataId] = useState(null)
   const [error, setError] = useState(null)
   const [showPicModal, setShowPicModal] = useState(false)
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(1)
   const { person_id } = useParams()
   const { scroll, scrollRef } = useScroll()
 

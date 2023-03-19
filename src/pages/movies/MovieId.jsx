@@ -21,7 +21,7 @@ export default function MovieId() {
   const [showModal, setShowModal] = useState(false)
   const [showPicModal, setShowPicModal] = useState(false)
   // const [statusCode, setStatusCode] = useState(null)
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(1)
   const { movie_id } = useParams()
   const { scroll, scrollB, scrollC, scrollRef, scrollRefB, scrollRefC } =
     useScroll()
@@ -103,8 +103,8 @@ export default function MovieId() {
           <div className='text-white'>
             <h1 className='fs-5'>Overview</h1>
             <p className=''>{tagline}</p>
-            {overview.split('\n\n').map((paragraph) => (
-              <p>
+            {overview.split('\n\n').map((paragraph, index) => (
+              <p key={index}>
                 {paragraph
                   .split('\n')
                   .reduce((total, line) => [total, <br />, line])}
