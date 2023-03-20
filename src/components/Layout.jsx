@@ -6,7 +6,14 @@ export default function Layout() {
     <>
       <Navbar />
       <div className='d-lg-flex'>
-        <div className='d-none d-lg-block bg-dark' style={{ width: '250px', minHeight:'100vh' }}>
+        <div
+          className='d-none d-lg-block'
+          style={{
+            width: '250px',
+            minHeight: '100vh',
+            backgroundColor: '#1a1b1d',
+          }}
+        >
           <div className='position-fixed top-0 start-0 sideAdjust scrollbody'>
             <Sidebar />
           </div>
